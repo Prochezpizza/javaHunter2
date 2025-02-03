@@ -8,9 +8,5 @@ public class Tile {
 
     public int waterSpriteNumber = 1;
     public int waterSpriteCounter = 0;
-
-    public boolean teleport = false;
-
-    public String mapSetter;
 }
 

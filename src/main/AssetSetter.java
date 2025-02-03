@@ -2,6 +2,7 @@ package main;
 
 import object.Obj_Key;
 import object.Obj_Door;
+import object.Obj_Cow;
 
 public class AssetSetter {
     GamePanel gp;
@@ -26,5 +27,9 @@ public class AssetSetter {
         gp.obj[3] = new Obj_Door();
         gp.obj[3].worldX = 12 * gp.tileSize;
         gp.obj[3].worldY = 10 * gp.tileSize;
+
+        gp.obj[4] = new Obj_Cow();
+        gp.obj[4].worldX = 10 * gp.tileSize;
+        gp.obj[4].worldY = 15 * gp.tileSize;
     }
 }

@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 import main.GamePanel;
 import main.KeyHandler;
+import main.UtilityTool;
 
 public class Player extends Entity {
 
@@ -50,22 +51,29 @@ public class Player extends Entity {
     }
 
     public void getPlayerImage() {
+        up1 = setup("orca");
+        up2 = setup("orca");
+        down1 = setup("orca");
+        down2 = setup("orca");
+        left1 = setup("orca");
+        left2 = setup("orca");
+        right1 = setup("orca");
+        right2 = setup("orca");
+    }
+
+    public BufferedImage setup(String imageName) {
+        UtilityTool utilityTool = new UtilityTool();
+        BufferedImage image = null;
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/res/player/orca.png"));
-        } catch (IOException e) {
+            image = ImageIO.read(getClass().getResourceAsStream("/res/player/" + imageName + ".png"));
+            image = utilityTool.scaleImage(image, gp.tileSize, gp.tileSize);
+        } catch(IOException e) {
             e.printStackTrace();
         }
+        return image;
     }
 
     public void update() {
-        System.out.println("Hello From Mobile");
         if (keyHandler.upPressed == true || keyHandler.downPressed == true || keyHandler.leftPressed == true || keyHandler.rightPressed == true) {
             collisionLeftOn = collisionRightOn = collisionUpOn = collisionDownOn = false;
             gp.collisionChecker.checkTile(this);
@@ -170,7 +178,7 @@ public class Player extends Entity {
             }
         }
 
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, null);
         g2.setColor(Color.red);
         g2.drawRect(screenX + solidArea.x, screenY+solidArea.y, solidArea.width, solidArea.height);
     }
