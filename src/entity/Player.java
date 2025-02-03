@@ -65,6 +65,7 @@ public class Player extends Entity {
     }
 
     public void update() {
+        System.out.println("Hello From Mobile");
         if (keyHandler.upPressed == true || keyHandler.downPressed == true || keyHandler.leftPressed == true || keyHandler.rightPressed == true) {
             collisionLeftOn = collisionRightOn = collisionUpOn = collisionDownOn = false;
             gp.collisionChecker.checkTile(this);
