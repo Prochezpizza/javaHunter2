@@ -74,6 +74,9 @@ public class Player extends Entity {
     }
 
     public void update() {
+        int defaultSpeed = speed;
+        speed = (60/gp.FPS)*speed;
+
         if (keyHandler.upPressed == true || keyHandler.downPressed == true || keyHandler.leftPressed == true || keyHandler.rightPressed == true) {
             collisionLeftOn = collisionRightOn = collisionUpOn = collisionDownOn = false;
             gp.collisionChecker.checkTile(this);
@@ -134,6 +137,7 @@ public class Player extends Entity {
                 standCounter = 0;
             }
         }
+        speed = defaultSpeed;
     }
 
     public void pickUpObject(int i) {
@@ -155,6 +159,8 @@ public class Player extends Entity {
                         gp.ui.ShowMessage("You need a key!");
                     }
                     break;
+                case "Cow":
+                    gp.ui.ShowMessage("Moo!");
             }
         }
     }

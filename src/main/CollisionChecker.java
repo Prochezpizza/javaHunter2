@@ -7,6 +7,11 @@ public class CollisionChecker extends Entity {
     GamePanel gp;
     KeyHandler keyHandler;
 
+    int collider0, collider1, collider2, collider3, collider4, collider5, collider6, collider7, collider8, collider9, collider10, collider11, collider12, collider13, collider14, collider15;
+        
+    int column0, column1, column2, column3, column4;
+    int row0, row1, row2, row3, row4;
+
     public CollisionChecker(GamePanel gp, KeyHandler keyHandler) {
         this.gp = gp;
         this.keyHandler = keyHandler;
@@ -23,11 +28,6 @@ public class CollisionChecker extends Entity {
         int entityBottomY = entity.worldY + entity.solidArea.y + entity.solidArea.height;
 
         // Set Rows and Columns
-        int collider0, collider1, collider2, collider3, collider4, collider5, collider6, collider7, collider8, collider9, collider10, collider11, collider12, collider13, collider14, collider15;
-        
-        int column0, column1, column2, column3, column4;
-        int row0, row1, row2, row3, row4;
-
         column0 = (entityLeftX - entity.speed) / gp.tileSize;
         column1 = (entityLeftX + ((entityRightX - entityLeftX)/5)) / gp.tileSize;
         column2 = (entityLeftX + ((entityRightX - entityLeftX)/2)) / gp.tileSize;
@@ -41,22 +41,22 @@ public class CollisionChecker extends Entity {
         row4 = (entityBottomY + entity.speed) / gp.tileSize;
 
         // Colliders (See CollisionMap.txt)
-        collider0  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column0][row0]].collision ? 1 : 0;
-        collider1  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column1][row0]].collision ? 1 : 0;
-        collider2  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column2][row0]].collision ? 1 : 0;
-        collider3  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column3][row0]].collision ? 1 : 0;
-        collider4  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column4][row0]].collision ? 1 : 0;
-        collider5  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column4][row1]].collision ? 1 : 0;
-        collider6  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column4][row2]].collision ? 1 : 0;
-        collider7  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column4][row3]].collision ? 1 : 0;
-        collider8  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column4][row4]].collision ? 1 : 0;
-        collider9  = gp.tileManager.tile[gp.tileManager.mapTileNumber[column3][row4]].collision ? 1 : 0;
-        collider10 = gp.tileManager.tile[gp.tileManager.mapTileNumber[column2][row4]].collision ? 1 : 0;
-        collider11 = gp.tileManager.tile[gp.tileManager.mapTileNumber[column1][row4]].collision ? 1 : 0;
-        collider12 = gp.tileManager.tile[gp.tileManager.mapTileNumber[column0][row4]].collision ? 1 : 0;
-        collider13 = gp.tileManager.tile[gp.tileManager.mapTileNumber[column0][row3]].collision ? 1 : 0;
-        collider14 = gp.tileManager.tile[gp.tileManager.mapTileNumber[column0][row2]].collision ? 1 : 0;
-        collider15 = gp.tileManager.tile[gp.tileManager.mapTileNumber[column0][row1]].collision ? 1 : 0;
+        collider0  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column0][row0]].collision ? 1 : 0;
+        collider1  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column1][row0]].collision ? 1 : 0;
+        collider2  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column2][row0]].collision ? 1 : 0;
+        collider3  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column3][row0]].collision ? 1 : 0;
+        collider4  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column4][row0]].collision ? 1 : 0;
+        collider5  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column4][row1]].collision ? 1 : 0;
+        collider6  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column4][row2]].collision ? 1 : 0;
+        collider7  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column4][row3]].collision ? 1 : 0;
+        collider8  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column4][row4]].collision ? 1 : 0;
+        collider9  = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column3][row4]].collision ? 1 : 0;
+        collider10 = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column2][row4]].collision ? 1 : 0;
+        collider11 = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column1][row4]].collision ? 1 : 0;
+        collider12 = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column0][row4]].collision ? 1 : 0;
+        collider13 = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column0][row3]].collision ? 1 : 0;
+        collider14 = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column0][row2]].collision ? 1 : 0;
+        collider15 = gp.tileManager.tile[gp.tileManager.mapTileNumber0[column0][row1]].collision ? 1 : 0;
 
         // Checking Multiple Collisions
         if (collider0 + collider1 + collider2 + collider3 + collider4 > 1) { entity.collisionUpOn = true; }

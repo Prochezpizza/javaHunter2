@@ -19,6 +19,4 @@ public class Entity {
     public boolean collisionRightOn = false;
     public boolean collisionUpOn = false;
     public boolean collisionDownOn = false;
-
-    public String mapSetter = "/res/maps/cliffMap.txt";
 }
